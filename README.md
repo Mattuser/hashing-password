@@ -18,7 +18,7 @@ dotnet build -c Release
 Informe a senha e o tipo de hasher desejado:
 
 ```powershell
-dotnet run --project .\src\PasswordHashing.Cli -c Release -- hash --password "minha-senha" --hasher-type BCrypt
+dotnet run --project .\src\password-hasing.Cli -c Release -- hash --password "minha-senha" --hasher-type BCrypt
 ```
 
 Tipos suportados:
@@ -35,7 +35,7 @@ Password hash: $2a$...
 
 ## Usar appsettings.json
 
-Configure a senha e o tipo padrão em [appsettings.json](src/PasswordHashing.Cli/appsettings.json):
+Configure a senha e o tipo padrão em [appsettings.json](src/password-hasing.Cli/appsettings.json):
 
 ```json
 {
@@ -49,19 +49,19 @@ Configure a senha e o tipo padrão em [appsettings.json](src/PasswordHashing.Cli
 Em seguida, execute:
 
 ```powershell
-dotnet run --project .\src\PasswordHashing.Cli -c Release -- hash
+dotnet run --project .\src\password-hasing.Cli -c Release -- hash
 ```
 
 Os valores informados na linha de comando substituem individualmente os valores do `appsettings.json`:
 
 ```powershell
-dotnet run --project .\src\PasswordHashing.Cli -c Release -- hash --hasher-type AspNet
+dotnet run --project .\src\password-hasing.Cli -c Release -- hash --hasher-type AspNet
 ```
 
 ## Identificar um hash
 
 ```powershell
-dotnet run --project .\src\PasswordHashing.Cli -c Release -- identify --hash '$2a$11$...'
+dotnet run --project .\src\password-hasing.Cli -c Release -- identify --hash '$2a$11$...'
 ```
 
 No PowerShell, use aspas simples para hashes BCrypt, pois o caractere `$` tem significado especial.
@@ -75,9 +75,9 @@ Hasher type: BCrypt
 ## Ajuda e códigos de saída
 
 ```powershell
-dotnet run --project .\src\PasswordHashing.Cli -c Release -- --help
-dotnet run --project .\src\PasswordHashing.Cli -c Release -- hash --help
-dotnet run --project .\src\PasswordHashing.Cli -c Release -- identify --help
+dotnet run --project .\src\password-hasing.Cli -c Release -- --help
+dotnet run --project .\src\password-hasing.Cli -c Release -- hash --help
+dotnet run --project .\src\password-hasing.Cli -c Release -- identify --help
 ```
 
 A aplicação retorna `0` em caso de sucesso e `1` para parâmetros inválidos, configuração incompleta ou hash não reconhecido.
@@ -90,5 +90,5 @@ Não versione senhas reais no `appsettings.json`. Senhas passadas pela linha de 
 $env:PasswordHashing__Password = "minha-senha"
 $env:PasswordHashing__HasherType = "BCrypt"
 
-dotnet run --project .\src\PasswordHashing.Cli -c Release -- hash
+dotnet run --project .\src\password-hasing.Cli -c Release -- hash
 ```

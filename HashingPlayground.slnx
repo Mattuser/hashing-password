@@ -1,7 +1,7 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/Benchmarks/Benchmarks.csproj" />
-    <Project Path="src/PasswordHashing.Cli/PasswordHashing.Cli.csproj" />
     <Project Path="src\password-hashing.Core\password-hashing.Core.csproj" />
+    <Project Path="src\password-hasing.Cli\password-hasing.Cli.csproj" />
   </Folder>
 </Solution>
