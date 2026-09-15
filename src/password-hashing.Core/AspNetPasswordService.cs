@@ -1,10 +1,22 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 
 namespace HashingPlayground.Core;
 
 public class AspNetPasswordService : IPasswordService
 {
-    private readonly PasswordHasher<object> _hasher = new();
+    private readonly PasswordHasher<object> _hasher;
+
+    public AspNetPasswordService()
+    {
+        var options = Options.Create(new PasswordHasherOptions
+        {
+            CompatibilityMode = PasswordHasherCompatibilityMode.IdentityV3,
+            IterationCount = 100_000
+        });
+
+        _hasher = new(options);
+    }
 
     public PasswordServiceType Type => PasswordServiceType.AspNet;
 
