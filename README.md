@@ -1,6 +1,6 @@
 # Password Hashing CLI
 
-Aplicação de linha de comando para gerar hashes de senha com BCrypt ou ASP.NET Identity e identificar o tipo de um hash existente.
+Aplicação de linha de comando para gerar hashes de senha com BCrypt, Argon2 ou ASP.NET Identity e identificar o tipo de um hash existente.
 
 ## Requisitos
 
@@ -24,6 +24,7 @@ dotnet run --project .\src\password-hasing.Cli -c Release -- hash --password "mi
 Tipos suportados:
 
 - `BCrypt`
+- `Argon2`
 - `AspNet` — ASP.NET Identity
 
 Exemplo de saída:

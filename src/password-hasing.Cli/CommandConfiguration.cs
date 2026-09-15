@@ -93,7 +93,7 @@ public sealed class CommandConfiguration
         if (hasherType is null)
         {
             Console.Error.WriteLine(
-                "A valid hasher type is required. Use --hasher-type BCrypt|AspNet or set PasswordHashing:HasherType in appsettings.json.");
+                "A valid hasher type is required. Use --hasher-type BCrypt|AspNet|Argon2 or set PasswordHashing:HasherType in appsettings.json.");
             return 1;
         }
 

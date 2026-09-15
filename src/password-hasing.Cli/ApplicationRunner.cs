@@ -29,6 +29,7 @@ public static class ApplicationRunner
 
         builder.Services.AddScoped<IPasswordService, BCryptPasswordService>();
         builder.Services.AddScoped<IPasswordService, AspNetPasswordService>();
+        builder.Services.AddScoped<IPasswordService, Argon2PasswordService>();
         builder.Services.AddScoped<IPasswordServiceResolver, PasswordServiceResolver>();
         builder.Services.AddScoped<PasswordHashGenerator>();
         builder.Services.AddScoped<CommandConfiguration>();

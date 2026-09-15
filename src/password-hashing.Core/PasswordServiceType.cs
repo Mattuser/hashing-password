@@ -3,5 +3,6 @@ namespace HashingPlayground.Core;
 public enum PasswordServiceType
 {
     BCrypt,
-    AspNet
+    AspNet,
+    Argon2
 }
