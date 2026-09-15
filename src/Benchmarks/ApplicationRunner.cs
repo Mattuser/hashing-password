@@ -1,3 +1,5 @@
+using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Exporters.Json;
 using BenchmarkDotNet.Running;
 using HashingPlayground.Core;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,9 +13,12 @@ public static class ApplicationRunner
     {
         if (args.Length == 0 || !string.Equals(args[0], "hash", StringComparison.OrdinalIgnoreCase))
         {
+            var config = DefaultConfig.Instance
+                .AddExporter(new JsonExporter(fileNameSuffix: "-fluent"));
+
             BenchmarkSwitcher
                 .FromAssembly(typeof(HashBenchmark).Assembly)
-                .Run(args);
+                .Run(args, config);
 
             return 0;
         }
